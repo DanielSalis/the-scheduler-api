@@ -8,6 +8,7 @@ const router = Router();
 // UserRoles
 router.post('/userRole/create', new CreateUserRoleController().handle)
 router.get('/userRole/getAll', new ListUserRoleController().getAll)
+router.get('/userRole/getById/:id', new ListUserRoleController().getById)
 
 //User
 
