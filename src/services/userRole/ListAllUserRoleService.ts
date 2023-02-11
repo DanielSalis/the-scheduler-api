@@ -2,14 +2,14 @@ import prismaClient from '../../prisma';
 
 class ListAllUserRoleService {
   async execute() {
-    const allUsersRoles = await prismaClient.userRole.findMany()
+    const allUsersRoles = await prismaClient.userRole.findMany();
 
     if(!allUsersRoles){
-      throw('The are no roles created')
+      throw('The are no roles created');
     }
 
-    return allUsersRoles
+    return allUsersRoles;
   }
 }
 
-export {ListAllUserRoleService}
+export { ListAllUserRoleService };

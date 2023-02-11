@@ -14,7 +14,7 @@ class CreateUserRoleService {
       where: {
         name: name
       }
-    })
+    });
 
     if (roleAlreadyExists) {
       throw new Error('Role already exists');
@@ -28,10 +28,10 @@ class CreateUserRoleService {
         id: true,
         name: true,
       }
-    })
+    });
 
     return userRole;
   }
 }
 
-export { CreateUserRoleService }
+export { CreateUserRoleService };

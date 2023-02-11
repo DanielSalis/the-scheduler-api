@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { CreateUserRoleService } from '../../services/userRole/CreateUserRoleService'
+import { CreateUserRoleService } from '../../services/userRole/CreateUserRoleService';
 
 class CreateUserRoleController {
   async handle(req: Request, res: Response) {
@@ -11,8 +11,8 @@ class CreateUserRoleController {
       name
     });
 
-    return res.json(userRole)
+    return res.json(userRole);
   }
 }
 
-export { CreateUserRoleController }
+export { CreateUserRoleController };

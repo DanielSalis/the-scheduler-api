@@ -12,7 +12,9 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
   root: true,
-  'rules': {
-    'quotes': [2, 'single', { 'avoidEscape': true }]
+  rules: {
+    quotes: [2, 'single', { 'avoidEscape': true }],
+    semi: [2, 'always'],
+    'object-curly-spacing': [ 'error', 'always' ]
   }
 };

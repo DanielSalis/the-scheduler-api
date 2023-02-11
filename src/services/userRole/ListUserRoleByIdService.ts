@@ -5,7 +5,7 @@ interface UserRoleRequest {
 }
 
 class ListUserRoleByIdService {
-  async execute({id}:UserRoleRequest){
+  async execute({ id }:UserRoleRequest){
     if(!id) throw new Error('Provide the userRole ID');
 
     const userRole = await prismaClient.userRole.findFirst({
@@ -20,4 +20,4 @@ class ListUserRoleByIdService {
   }
 }
 
-export {ListUserRoleByIdService}
+export { ListUserRoleByIdService };

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import {ListAllUserRoleService} from '../../services/userRole/ListAllUserRoleService'
-import {ListUserRoleByIdService} from '../../services/userRole/ListUserRoleByIdService'
+import { ListAllUserRoleService } from '../../services/userRole/ListAllUserRoleService';
+import { ListUserRoleByIdService } from '../../services/userRole/ListUserRoleByIdService';
 
 class ListUserRoleController {
   async getAll(req: Request, res: Response){
@@ -12,7 +12,7 @@ class ListUserRoleController {
   }
 
   async getById(req: Request, res: Response){
-    const {id} = req.params;
+    const { id } = req.params;
 
     const listUserRoleByIdService = new ListUserRoleByIdService();
 
@@ -24,4 +24,4 @@ class ListUserRoleController {
   }
 }
 
-export {ListUserRoleController}
+export { ListUserRoleController };
