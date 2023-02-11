@@ -1,4 +1,4 @@
-import prismaClient from "../../prisma";
+import prismaClient from '../../prisma';
 
 interface UserRoleRequest {
   name: string;
@@ -7,7 +7,7 @@ interface UserRoleRequest {
 class CreateUserRoleService {
   async execute({ name }: UserRoleRequest) {
     if (!name) {
-      throw new Error("Name invalid");
+      throw new Error('Name invalid');
     }
 
     const roleAlreadyExists = await prismaClient.userRole.findFirst({
@@ -17,7 +17,7 @@ class CreateUserRoleService {
     })
 
     if (roleAlreadyExists) {
-      throw new Error("Role already exists");
+      throw new Error('Role already exists');
     }
 
     const userRole = await prismaClient.userRole.create({
