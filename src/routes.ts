@@ -1,9 +1,9 @@
 import { Router, Request, Response } from "express";
 
+import { CreateUserRoleController } from './controllers/userRole/CreateUserRoleController'
+
 const router = Router();
 
-router.get("/teste", (req: Request, res: Response) => {
-  return res.json({ ok: true })
-})
+router.post('/createUserRole', new CreateUserRoleController().handle)
 
 export { router };
