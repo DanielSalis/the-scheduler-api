@@ -15,6 +15,6 @@ module.exports = {
   rules: {
     quotes: [2, 'single', { 'avoidEscape': true }],
     semi: [2, 'always'],
-    'object-curly-spacing': [ 'error', 'always' ]
+    'object-curly-spacing': [ 'error', 'always' ],
   }
 };
