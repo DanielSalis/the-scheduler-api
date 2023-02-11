@@ -4,6 +4,6 @@ import { CreateUserRoleController } from './controllers/userRole/CreateUserRoleC
 
 const router = Router();
 
-router.post('/createUserRole', new CreateUserRoleController().handle)
+router.post('/userRole/create', new CreateUserRoleController().handle)
 
 export { router };
