@@ -31,3 +31,11 @@ model UserRole {
 
   @@map("user_roles")
 }
+
+model Company {
+  id     String @id @default(uuid())
+  name   String
+  addres String
+
+  @@map("companies")
+}
