@@ -72,5 +72,18 @@ model Bed {
   unity    Unity  @relation(fields: [unity_id], references: [id])
   unity_id String
 
+  classification    Classification @relation(fields: [classification_id], references: [id])
+  classification_id String
+
   @@map("beds")
+}
+
+model Classification {
+  id             String @id @default(uuid())
+  name           String
+  color          String
+  estimated_time Float
+  Bed            Bed[]
+
+  @@map("classifications")
 }
