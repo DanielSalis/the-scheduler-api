@@ -48,6 +48,18 @@ model Hospital {
 
   company    Company @relation(fields: [company_id], references: [id])
   company_id String
+  Unity      Unity[]
 
   @@map("hospitals")
+}
+
+model Unity {
+  id       String @id @default(uuid())
+  name     String
+  location String
+
+  hospital    Hospital @relation(fields: [hospital_id], references: [id])
+  hospital_id String
+
+  @@map("unities")
 }
