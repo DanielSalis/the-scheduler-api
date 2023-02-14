@@ -21,8 +21,8 @@ model User {
   user_role    UserRole  @relation(fields: [user_role_id], references: [id])
   user_role_id String
 
-  unity    Unity  @relation(fields: [unity_id], references: [id])
-  unity_id String
+  unity    Unity?  @relation(fields: [unity_id], references: [id])
+  unity_id String?
 
   @@map("users")
 }
