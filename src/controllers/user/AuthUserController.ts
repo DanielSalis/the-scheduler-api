@@ -7,7 +7,7 @@ class AuthUserController {
 
     const authController = new AuthUserService();
 
-    const auth = authController.execute({
+    const auth = await authController.execute({
       email,
       password
     });
