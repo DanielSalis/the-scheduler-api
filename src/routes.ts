@@ -4,6 +4,8 @@ import { CreateUserRoleController } from './controllers/userRole/CreateUserRoleC
 import { ListUserRoleController } from './controllers/userRole/ListUserRoleController';
 import { CreateUserController } from './controllers/user/CreateUserController';
 import { AuthUserController } from './controllers/user/AuthUserController';
+import { ListUserController } from './controllers/user/ListUserController';
+
 
 const router = Router();
 
@@ -15,6 +17,7 @@ router.get('/userRole/getById/:id', new ListUserRoleController().getById);
 //User
 router.post('/user/create', new CreateUserController().handle);
 router.post('/user/auth', new AuthUserController().handle);
+router.get('/user/getAll', new ListUserController().getAll);
 
 // Teste
 router.get('/teste', (req: Request, res: Response) => {
