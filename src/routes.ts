@@ -18,6 +18,7 @@ router.get('/userRole/getById/:id', new ListUserRoleController().getById);
 router.post('/user/create', new CreateUserController().handle);
 router.post('/user/auth', new AuthUserController().handle);
 router.get('/user/getAll', new ListUserController().getAll);
+router.get('/user/getById/:id', new ListUserController().getById);
 
 // Teste
 router.get('/teste', (req: Request, res: Response) => {
