@@ -20,3 +20,5 @@ class UpdateUserController {
     else res.send({ message: 'Was not possible to update user' });
   }
 }
+
+export { UpdateUserController };
