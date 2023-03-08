@@ -20,14 +20,19 @@ class UpdateUserByIdService {
 
     if(!user) throw new Error('user not found');
 
-    const passwordMatched = await compare(password, user.password);
+    let newPassword = user.password;
+
+    if(password){
+      const passwordMatched = await compare(password, user.password);
+      newPassword = passwordMatched ? user.password : await hash(password, 8);
+    }
 
     const userUpdated = await prismaClient.user.update({
       where: {
         id: id
       },
       data: {
-        password: passwordMatched ? password : await hash(user.password, 8),
+        password: newPassword,
         code: code,
         name: name,
         email: email
