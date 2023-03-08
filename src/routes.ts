@@ -5,6 +5,7 @@ import { ListUserRoleController } from './controllers/userRole/ListUserRoleContr
 import { CreateUserController } from './controllers/user/CreateUserController';
 import { AuthUserController } from './controllers/user/AuthUserController';
 import { ListUserController } from './controllers/user/ListUserController';
+import { UpdateUserController } from './controllers/user/UpdateUserController';
 
 
 const router = Router();
@@ -19,7 +20,7 @@ router.post('/user/create', new CreateUserController().handle);
 router.post('/user/auth', new AuthUserController().handle);
 router.get('/user/getAll', new ListUserController().getAll);
 router.get('/user/getById/:id', new ListUserController().getById);
-
+router.put('/user/updateById', new UpdateUserController().updateById);
 // Teste
 router.get('/teste', (req: Request, res: Response) => {
   return res.json({ nome: 'aaa' });
