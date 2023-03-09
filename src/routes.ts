@@ -6,6 +6,7 @@ import { CreateUserController } from './controllers/user/CreateUserController';
 import { AuthUserController } from './controllers/user/AuthUserController';
 import { ListUserController } from './controllers/user/ListUserController';
 import { UpdateUserController } from './controllers/user/UpdateUserController';
+import { DeleteUserController } from './controllers/user/DeleteUserController';
 
 
 const router = Router();
@@ -21,6 +22,8 @@ router.post('/user/auth', new AuthUserController().handle);
 router.get('/user/getAll', new ListUserController().getAll);
 router.get('/user/getById/:id', new ListUserController().getById);
 router.put('/user/updateById', new UpdateUserController().updateById);
+router.delete('/user/deleteById/:id', new DeleteUserController().deleteById);
+
 // Teste
 router.get('/teste', (req: Request, res: Response) => {
   return res.json({ nome: 'aaa' });
