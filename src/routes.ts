@@ -29,6 +29,7 @@ router.delete('/user/deleteById/:id', new DeleteUserController().deleteById);
 //Company
 router.post('/company/create', new CreateCompanyController().handle);
 router.get('/company/getAll', new ListCompanyController().getAll);
+router.get('/company/getById/:id', new ListCompanyController().getById);
 
 // Teste
 router.get('/teste', (req: Request, res: Response) => {
