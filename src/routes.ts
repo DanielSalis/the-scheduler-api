@@ -8,6 +8,7 @@ import { ListUserController } from './controllers/user/ListUserController';
 import { UpdateUserController } from './controllers/user/UpdateUserController';
 import { DeleteUserController } from './controllers/user/DeleteUserController';
 import { CreateCompanyController } from './controllers/company/CreateCompanyController';
+import { ListCompanyController } from './controllers/company/ListCompanyController';
 
 
 const router = Router();
@@ -27,6 +28,7 @@ router.delete('/user/deleteById/:id', new DeleteUserController().deleteById);
 
 //Company
 router.post('/company/create', new CreateCompanyController().handle);
+router.get('/company/getAll', new ListCompanyController().getAll);
 
 // Teste
 router.get('/teste', (req: Request, res: Response) => {
