@@ -37,17 +37,17 @@ model UserRole {
 
 model Company {
   id       String     @id @default(uuid())
-  name     String
-  addres   String
+  name     String     @unique
+  address  String
   Hospital Hospital[]
 
   @@map("companies")
 }
 
 model Hospital {
-  id     String @id @default(uuid())
-  name   String
-  addres String
+  id      String @id @default(uuid())
+  name    String
+  address String
 
   company    Company @relation(fields: [company_id], references: [id])
   company_id String
