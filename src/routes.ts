@@ -11,6 +11,10 @@ import { CreateCompanyController } from './controllers/company/CreateCompanyCont
 import { ListCompanyController } from './controllers/company/ListCompanyController';
 import { UpdateCompanyController } from './controllers/company/UpdateCompanyController';
 import { DeleteCompanyService } from './controllers/company/DeleteCompanyController';
+import { CreateHospitalController } from './controllers/hospital/CreateHospitalController';
+import { ListHospitalController } from './controllers/hospital/ListHospitalController';
+import { UpdateHospitalController } from './controllers/hospital/UpdateHospitalController';
+import { DeleteHospitalController } from './controllers/hospital/DeleteHospitalController';
 
 
 const router = Router();
@@ -34,6 +38,13 @@ router.get('/company/getAll', new ListCompanyController().getAll);
 router.get('/company/getById/:id', new ListCompanyController().getById);
 router.put('/company/updateById', new UpdateCompanyController().updateById);
 router.delete('/company/deleteById/:id', new DeleteCompanyService().deleteById);
+
+//hospital
+router.post('/hospital/create', new CreateHospitalController().handle);
+router.get('/hospital/getAll', new ListHospitalController().getAll);
+router.get('/hospital/getById/:id', new ListHospitalController().getById);
+router.put('/hospital/updateById', new UpdateHospitalController().updateById);
+router.delete('/hospital/deleteById/:id', new DeleteHospitalController().deleteById);
 
 
 // Teste
