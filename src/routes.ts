@@ -10,6 +10,7 @@ import { DeleteUserController } from './controllers/user/DeleteUserController';
 import { CreateCompanyController } from './controllers/company/CreateCompanyController';
 import { ListCompanyController } from './controllers/company/ListCompanyController';
 import { UpdateCompanyController } from './controllers/company/UpdateCompanyController';
+import { DeleteCompanyService } from './controllers/company/DeleteCompanyController';
 
 
 const router = Router();
@@ -32,6 +33,8 @@ router.post('/company/create', new CreateCompanyController().handle);
 router.get('/company/getAll', new ListCompanyController().getAll);
 router.get('/company/getById/:id', new ListCompanyController().getById);
 router.put('/company/updateById', new UpdateCompanyController().updateById);
+router.delete('/company/deleteById/:id', new DeleteCompanyService().deleteById);
+
 
 // Teste
 router.get('/teste', (req: Request, res: Response) => {
