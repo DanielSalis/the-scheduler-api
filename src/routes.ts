@@ -15,6 +15,10 @@ import { CreateHospitalController } from './controllers/hospital/CreateHospitalC
 import { ListHospitalController } from './controllers/hospital/ListHospitalController';
 import { UpdateHospitalController } from './controllers/hospital/UpdateHospitalController';
 import { DeleteHospitalController } from './controllers/hospital/DeleteHospitalController';
+import { CreateUnityController } from './controllers/unity/CreateUnityController';
+import { ListUnityController } from './controllers/unity/ListUnityController';
+import { UpdateUnityController } from './controllers/unity/UpdateUnityController';
+import { DeleteUnityController } from './controllers/unity/DeleteUnityController';
 
 
 const router = Router();
@@ -45,6 +49,13 @@ router.get('/hospital/getAll', new ListHospitalController().getAll);
 router.get('/hospital/getById/:id', new ListHospitalController().getById);
 router.put('/hospital/updateById', new UpdateHospitalController().updateById);
 router.delete('/hospital/deleteById/:id', new DeleteHospitalController().deleteById);
+
+//unity
+router.post('/unity/create', new CreateUnityController().handle);
+router.get('/unity/getAll', new ListUnityController().getAll);
+router.get('/unity/getById/:id', new ListUnityController().getById);
+router.put('/unity/updateById', new UpdateUnityController().updateById);
+router.delete('/unity/deleteById/:id', new DeleteUnityController().deleteById);
 
 
 // Teste
