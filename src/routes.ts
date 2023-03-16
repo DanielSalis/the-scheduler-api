@@ -19,6 +19,8 @@ import { CreateUnityController } from './controllers/unity/CreateUnityController
 import { ListUnityController } from './controllers/unity/ListUnityController';
 import { UpdateUnityController } from './controllers/unity/UpdateUnityController';
 import { DeleteUnityController } from './controllers/unity/DeleteUnityController';
+import { CreateClassificationController } from './controllers/classification/CreateUserRoleController';
+import { ListClassificationController } from './controllers/classification/ListUserRoleController';
 
 
 const router = Router();
@@ -56,6 +58,11 @@ router.get('/unity/getAll', new ListUnityController().getAll);
 router.get('/unity/getById/:id', new ListUnityController().getById);
 router.put('/unity/updateById', new UpdateUnityController().updateById);
 router.delete('/unity/deleteById/:id', new DeleteUnityController().deleteById);
+
+//classifications
+router.post('/classification/create', new CreateClassificationController().handle);
+router.get('/classification/getAll', new ListClassificationController().getAll);
+router.get('/classification/getById/:id', new ListClassificationController().getById);
 
 
 // Teste
