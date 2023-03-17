@@ -21,6 +21,10 @@ import { UpdateUnityController } from './controllers/unity/UpdateUnityController
 import { DeleteUnityController } from './controllers/unity/DeleteUnityController';
 import { CreateClassificationController } from './controllers/classification/CreateUserRoleController';
 import { ListClassificationController } from './controllers/classification/ListUserRoleController';
+import { CreateBedController } from './controllers/bed/CreateBedController';
+import { ListBedController } from './controllers/bed/ListBedController';
+import { UpdateBedController } from './controllers/bed/UpdateBedController';
+import { DeleteBedController } from './controllers/bed/DeleteBedController';
 
 
 const router = Router();
@@ -63,6 +67,13 @@ router.delete('/unity/deleteById/:id', new DeleteUnityController().deleteById);
 router.post('/classification/create', new CreateClassificationController().handle);
 router.get('/classification/getAll', new ListClassificationController().getAll);
 router.get('/classification/getById/:id', new ListClassificationController().getById);
+
+//bed
+router.post('/bed/create', new CreateBedController().handle);
+router.get('/bed/getAll', new ListBedController().getAll);
+router.get('/bed/getById/:id', new ListBedController().getById);
+router.put('/bed/updateById', new UpdateBedController().updateById);
+router.delete('/bed/deleteById/:id', new DeleteBedController().deleteById);
 
 
 // Teste
