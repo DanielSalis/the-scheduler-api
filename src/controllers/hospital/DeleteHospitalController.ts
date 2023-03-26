@@ -11,7 +11,7 @@ class DeleteHospitalController {
       id
     });
 
-    res.send(hospital);
+    res.send({ message:'Deleted successfully' , hospital });
   }
 }
 
