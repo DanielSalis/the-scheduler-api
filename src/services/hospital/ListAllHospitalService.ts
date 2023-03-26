@@ -7,7 +7,7 @@ class ListAllHospitalService {
         id: true,
         name: true,
         address: true,
-        company_id: true
+        company: true
       }
     });
 
