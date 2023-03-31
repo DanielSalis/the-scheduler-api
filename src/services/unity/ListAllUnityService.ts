@@ -7,7 +7,7 @@ class ListAllUnityService {
         id: true,
         name: true,
         location: true,
-        hospital_id: true
+        hospital: true
       }
     });
 
