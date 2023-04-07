@@ -50,9 +50,38 @@ async function createUser() {
   console.log({ userAdmin });
 }
 
+async function createClassifications() {
+  const highClassification = await prisma.classification.create({
+    data: {
+      'name': 'Alta',
+      'color': '#FF5252',
+      'estimated_time': 120
+    },
+  });
+
+  const mediumClassification = await prisma.classification.create({
+    data: {
+      'name': 'Média',
+      'color': '#FFC107',
+      'estimated_time': 60
+    },
+  });
+
+  const lowClassification = await prisma.classification.create({
+    data: {
+      'name': 'Média',
+      'color': '#4CAF50',
+      'estimated_time': 30
+    },
+  });
+
+  console.log({ highClassification, mediumClassification, lowClassification });
+}
+
 async function main() {
   await createUserRoles();
   await createUser();
+  await createClassifications();
 }
 main()
   .then(async () => {
