@@ -3,7 +3,7 @@ import { CreateUserService } from '../../services/user/CreateUserService';
 
 class CreateUserController {
   async handle(req: Request, res: Response){
-    const { name, email, password, userRoleId, code } = req.body;
+    const { name, email, password, userRoleId, code, unityId } = req.body;
 
     const userService = new CreateUserService();
 
@@ -12,7 +12,8 @@ class CreateUserController {
       email,
       password,
       userRoleId,
-      code
+      code,
+      unityId
     });
 
     res.send(user);

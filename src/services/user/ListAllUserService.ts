@@ -8,6 +8,7 @@ class ListAllUserService {
         name: true,
         email: true,
         code: true,
+        unity_id: true
       }
     });
 

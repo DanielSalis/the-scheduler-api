@@ -7,6 +7,7 @@ interface UserRequest{
   password: string,
   userRoleId: string,
   code: string
+  unityId?:string
 }
 
 class CreateUserService {
@@ -31,7 +32,8 @@ class CreateUserService {
         email: user.email,
         password: passwordHashed,
         user_role_id: user.userRoleId,
-        code: user.code
+        code: user.code,
+        unity_id: user.unityId
       },
       select: {
         id: true,

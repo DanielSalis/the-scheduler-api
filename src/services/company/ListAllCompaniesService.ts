@@ -7,6 +7,13 @@ class ListAllCompaniesService {
         id: true,
         name: true,
         address: true,
+        Hospital:{
+          select:{
+            name:true,
+            id:true,
+            Unity:true
+          }
+        }
       }
     });
 
