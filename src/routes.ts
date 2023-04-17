@@ -59,7 +59,8 @@ router.delete('/hospital/deleteById/:id', new DeleteHospitalController().deleteB
 //unity
 router.post('/unity/create', new CreateUnityController().handle);
 router.get('/unity/getAll', new ListUnityController().getAll);
-router.get('/unity/getById/:id', new ListUnityController().getById);
+router.get('/unity/getAllUnitiesBySibling/:id', new ListUnityController().getAllUnitiesBySibling);
+router.get('/unity/deleteById/:id', new DeleteUnityController().deleteById);
 router.put('/unity/updateById', new UpdateUnityController().updateById);
 router.delete('/unity/deleteById/:id', new DeleteUnityController().deleteById);
 

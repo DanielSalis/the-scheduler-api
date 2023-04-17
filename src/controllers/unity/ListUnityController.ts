@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { ListAllUnityService } from '../../services/unity/ListAllUnityService';
 import { ListUnityByIdService } from '../../services/unity/ListUnityByIdService';
+import { ListAllUnitiesBySibling } from '../../services/unity/ListAllUnitiesBySibling';
 
 
 class ListUnityController {
@@ -21,6 +22,17 @@ class ListUnityController {
     });
 
     res.json(unity);
+  }
+
+  async getAllUnitiesBySibling(req: Request, res: Response) {
+    const { unityId } = req.params;
+    const service = new ListAllUnitiesBySibling();
+
+    const unities = await service.execute({
+      id: unityId
+    });
+
+    res.json(unities);
   }
 
 }
