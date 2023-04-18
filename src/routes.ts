@@ -74,6 +74,7 @@ router.get('/classification/getById/:id', new ListClassificationController().get
 router.post('/bed/create', new CreateBedController().handle);
 router.get('/bed/getAll', new ListBedController().getAll);
 router.get('/bed/getById/:id', new ListBedController().getById);
+router.get('/bed/getAllByUnityId/:unityId', new ListBedController().getAllByUnityId);
 router.put('/bed/updateById', new UpdateBedController().updateById);
 router.delete('/bed/deleteById/:id', new DeleteBedController().deleteById);
 
