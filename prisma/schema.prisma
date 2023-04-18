@@ -91,3 +91,10 @@ model Classification {
 
   @@map("classifications")
 }
+
+model Shift {
+  id   String @id @default(uuid())
+  name String
+
+  @@map("shifts")
+}

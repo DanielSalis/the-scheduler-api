@@ -25,6 +25,7 @@ import { CreateBedController } from './controllers/bed/CreateBedController';
 import { ListBedController } from './controllers/bed/ListBedController';
 import { UpdateBedController } from './controllers/bed/UpdateBedController';
 import { DeleteBedController } from './controllers/bed/DeleteBedController';
+import { ListShiftsController } from './controllers/shift/ListShiftController';
 
 
 const router = Router();
@@ -76,6 +77,9 @@ router.get('/bed/getById/:id', new ListBedController().getById);
 router.put('/bed/updateById', new UpdateBedController().updateById);
 router.delete('/bed/deleteById/:id', new DeleteBedController().deleteById);
 
+
+//shift
+router.get('/shift/getAll', new ListShiftsController().getAll);
 
 // Teste
 router.get('/teste', (req: Request, res: Response) => {

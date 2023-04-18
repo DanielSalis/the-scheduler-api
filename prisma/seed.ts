@@ -78,10 +78,33 @@ async function createClassifications() {
   console.log({ highClassification, mediumClassification, lowClassification });
 }
 
+async function createShifts() {
+  const morningShift = await prisma.shift.create({
+    data: {
+      'name': 'Manhã',
+    },
+  });
+
+  const afternoonShift = await prisma.shift.create({
+    data: {
+      'name': 'Tarde',
+    },
+  });
+
+  const nightShift = await prisma.shift.create({
+    data: {
+      'name': 'Noite',
+    },
+  });
+
+  console.log({ morningShift, afternoonShift, nightShift });
+}
+
 async function main() {
   await createUserRoles();
   await createUser();
   await createClassifications();
+  await createShifts();
 }
 main()
   .then(async () => {
