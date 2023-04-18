@@ -69,7 +69,7 @@ async function createClassifications() {
 
   const lowClassification = await prisma.classification.create({
     data: {
-      'name': 'Média',
+      'name': 'Baixa',
       'color': '#4CAF50',
       'estimated_time': 30
     },
