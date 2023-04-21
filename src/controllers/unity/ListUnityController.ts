@@ -25,11 +25,11 @@ class ListUnityController {
   }
 
   async getAllUnitiesBySibling(req: Request, res: Response) {
-    const { unityId } = req.params;
+    const { id } = req.params;
     const service = new ListAllUnitiesBySibling();
 
     const unities = await service.execute({
-      id: unityId
+      id: id
     });
 
     res.json(unities);

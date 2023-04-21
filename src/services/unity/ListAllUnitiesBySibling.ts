@@ -6,24 +6,19 @@ interface UnityRequest{
 
 class ListAllUnitiesBySibling {
   async execute({ id }: UnityRequest) {
-    const hospital = await prismaClient.hospital.findFirst({
-      select: {
-        id: true,
-        Unity: {
-          where: {
-            id: id
-          }
-        }
+    const unity = await prismaClient.unity.findUnique({
+      where: {
+        id: id,
       }
     });
 
-    if(!hospital){
-      throw('This unity does not belong to any hospital');
+    if(!unity){
+      throw('This unity does not exists');
     }
 
     const unities = await prismaClient.hospital.findUnique({
       where:{
-        id: hospital.id
+        id: unity.hospital_id
       },
       select: {
         Unity: true
