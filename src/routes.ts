@@ -40,6 +40,7 @@ router.post('/user/create', new CreateUserController().handle);
 router.post('/user/auth', new AuthUserController().handle);
 router.get('/user/getAll', new ListUserController().getAll);
 router.get('/user/getById/:id', new ListUserController().getById);
+router.get('/user/getAllByUnityId/:unityId', new ListUserController().getAllByUnityId);
 router.put('/user/updateById', new UpdateUserController().updateById);
 router.delete('/user/deleteById/:id', new DeleteUserController().deleteById);
 

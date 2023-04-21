@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { ListAllUserService } from '../../services/user/ListAllUserService';
 import { ListUserByIdService } from '../../services/user/ListUserByIdService';
+import { ListAllUsersByUnityId } from '../../services/user/ListAllUsersByUnityId';
 class ListUserController {
   async getAll(req: Request, res: Response){
     const listAllUserRoleService = new ListAllUserService();
@@ -19,6 +20,17 @@ class ListUserController {
     });
 
     res.json(user);
+  }
+
+  async getAllByUnityId(req: Request, res: Response) {
+    const { unityId } = req.params;
+    const listUserById = new ListAllUsersByUnityId();
+
+    const users = await listUserById.execute({
+      unityId: unityId
+    });
+
+    res.json(users);
   }
 
 }
