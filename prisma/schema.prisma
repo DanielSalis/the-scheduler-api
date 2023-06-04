@@ -21,8 +21,10 @@ model User {
   user_role    UserRole  @relation(fields: [user_role_id], references: [id])
   user_role_id String
 
-  unity    Unity?  @relation(fields: [unity_id], references: [id])
-  unity_id String?
+  unity           Unity?            @relation(fields: [unity_id], references: [id])
+  unity_id        String?
+  Schedules       Schedule[]
+  ScheduleUserBed ScheduleUserBed[]
 
   @@map("users")
 }
@@ -61,10 +63,11 @@ model Unity {
   name     String
   location String
 
-  hospital    Hospital @relation(fields: [hospital_id], references: [id])
+  hospital    Hospital   @relation(fields: [hospital_id], references: [id])
   hospital_id String
   Bed         Bed[]
   User        User[]
+  Schedule    Schedule[]
 
   @@map("unities")
 }
@@ -76,8 +79,9 @@ model Bed {
   unity    Unity  @relation(fields: [unity_id], references: [id])
   unity_id String
 
-  classification    Classification @relation(fields: [classification_id], references: [id])
+  classification    Classification    @relation(fields: [classification_id], references: [id])
   classification_id String
+  ScheduleUserBed   ScheduleUserBed[]
 
   @@map("beds")
 }
@@ -93,8 +97,45 @@ model Classification {
 }
 
 model Shift {
-  id   String @id @default(uuid())
-  name String
+  id       String     @id @default(uuid())
+  name     String
+  Schedule Schedule[]
 
   @@map("shifts")
+}
+
+model Schedule {
+  id              String    @id @default(uuid())
+  created_at      DateTime? @default(now())
+  updated_at      DateTime? @default(now())
+  operational_day DateTime?
+  cancelled       Boolean?  @default(false)
+
+  unity    Unity  @relation(fields: [unity_id], references: [id])
+  unity_id String
+
+  user            User   @relation(fields: [user_creator_id], references: [id])
+  user_creator_id String
+
+  shift           Shift             @relation(fields: [shift_id], references: [id])
+  shift_id        String
+  ScheduleUserBed ScheduleUserBed[]
+
+  @@map("schedules")
+}
+
+model ScheduleUserBed {
+  id             String @id @default(uuid())
+  estimated_time Float?
+
+  schedule    Schedule @relation(fields: [schedule_id], references: [id])
+  schedule_id String
+
+  user    User   @relation(fields: [user_id], references: [id])
+  user_id String
+
+  bed    Bed    @relation(fields: [bed_id], references: [id])
+  bed_id String
+
+  @@map("schedules_users_beds")
 }
