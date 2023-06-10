@@ -35,7 +35,7 @@ class CreateScheduleUserBedService {
       throw new Error('Missing schedule params');
     }
 
-    const schedule = await prismaClient.schedule.findFirst({
+    const schedule = await prismaClient.schedules.findFirst({
       where: {
         id: schedule_id
       },
