@@ -23,7 +23,7 @@ model User {
 
   unity           Unity?            @relation(fields: [unity_id], references: [id])
   unity_id        String?
-  Schedules       Schedule[]
+  Schedules       Schedules[]
   ScheduleUserBed ScheduleUserBed[]
 
   @@map("users")
@@ -63,11 +63,11 @@ model Unity {
   name     String
   location String
 
-  hospital    Hospital   @relation(fields: [hospital_id], references: [id])
+  hospital    Hospital    @relation(fields: [hospital_id], references: [id])
   hospital_id String
   Bed         Bed[]
   User        User[]
-  Schedule    Schedule[]
+  Schedule    Schedules[]
 
   @@map("unities")
 }
@@ -97,14 +97,14 @@ model Classification {
 }
 
 model Shift {
-  id       String     @id @default(uuid())
+  id       String      @id @default(uuid())
   name     String
-  Schedule Schedule[]
+  Schedule Schedules[]
 
   @@map("shifts")
 }
 
-model Schedule {
+model Schedules {
   id              String    @id @default(uuid())
   created_at      DateTime? @default(now())
   updated_at      DateTime? @default(now())
@@ -128,7 +128,7 @@ model ScheduleUserBed {
   id             String @id @default(uuid())
   estimated_time Float?
 
-  schedule    Schedule @relation(fields: [schedule_id], references: [id])
+  schedule    Schedules @relation(fields: [schedule_id], references: [id])
   schedule_id String
 
   user    User   @relation(fields: [user_id], references: [id])

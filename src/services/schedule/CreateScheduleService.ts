@@ -14,7 +14,7 @@ class CreateScheduleService {
       throw new Error('Missing schedule params');
     }
 
-    const schedule = await prismaClient.schedule.findFirst({
+    const schedule = await prismaClient.schedules.findFirst({
       where: {
         unity_id: scheduleRequest.unity_id,
         shift_id: scheduleRequest.shift_id,
@@ -26,7 +26,7 @@ class CreateScheduleService {
       throw new Error('Schedule already exists');
     }
 
-    const newSchedule = await prismaClient.schedule.create({
+    const newSchedule = await prismaClient.schedules.create({
       data: {
         operational_day: scheduleRequest.operational_day,
         unity_id: scheduleRequest.unity_id,
