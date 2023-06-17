@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
-import { PrismaClient } from '@prisma/client';
-import { hash } from 'bcryptjs';
+const { PrismaClient } = require('@prisma/client');
+const { hash } = require('bcryptjs');
+
 const prisma = new PrismaClient();
 
 async function createUserRoles(){
