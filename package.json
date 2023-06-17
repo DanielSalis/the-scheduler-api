@@ -4,7 +4,7 @@
   "description": "Backend repo for de nurse scheduling app from my University conclusion project",
   "main": "index.js",
   "scripts": {
-    "tsc": "tsc",
+    "postinstall": "tsc",
     "start": "node build/src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --exit-child src/server.ts",

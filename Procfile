@@ -1,1 +1,1 @@
-worker: npm run tsc && npm start
+worker: npm start
