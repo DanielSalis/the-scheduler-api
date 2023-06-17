@@ -24,4 +24,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
 });
 
-app.listen(3333, ()=>console.log('Server Running'));
+const port = process.env.PORT;
+
+app.listen(port, ()=>console.log('Server Running on port: ' + port));
