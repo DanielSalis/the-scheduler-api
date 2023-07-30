@@ -51,31 +51,39 @@ async function createUser() {
 }
 
 async function createClassifications() {
-  const highClassification = await prisma.classification.create({
+  const semiIntensiveClassification = await prisma.classification.create({
     data: {
-      'name': 'Alta',
+      'name': 'Semi-intensivo',
       'color': '#FF5252',
-      'estimated_time': 120
+      'estimated_time': 110
     },
   });
 
-  const mediumClassification = await prisma.classification.create({
+  const highDependencyClassification = await prisma.classification.create({
     data: {
-      'name': 'Média',
+      'name': 'Alto',
       'color': '#FFC107',
-      'estimated_time': 60
+      'estimated_time': 75
     },
   });
 
-  const lowClassification = await prisma.classification.create({
+  const intermediateClassification = await prisma.classification.create({
     data: {
-      'name': 'Baixa',
+      'name': 'Intermedário',
       'color': '#4CAF50',
-      'estimated_time': 30
+      'estimated_time': 55
     },
   });
 
-  console.log({ highClassification, mediumClassification, lowClassification });
+  const minimumClassification = await prisma.classification.create({
+    data: {
+      'name': 'Mínimo',
+      'color': '#7986CB',
+      'estimated_time': 40
+    },
+  });
+
+  console.log({ semiIntensiveClassification, highDependencyClassification, intermediateClassification, minimumClassification });
 }
 
 async function createShifts() {
