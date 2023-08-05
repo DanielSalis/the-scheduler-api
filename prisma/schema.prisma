@@ -110,6 +110,7 @@ model Schedules {
   updated_at      DateTime? @default(now())
   operational_day String?
   cancelled       Boolean?  @default(false)
+  workload        Float?
 
   unity    Unity  @relation(fields: [unity_id], references: [id])
   unity_id String

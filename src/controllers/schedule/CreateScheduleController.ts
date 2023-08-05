@@ -5,7 +5,7 @@ import { CreateScheduleUserBedService } from '../../services/scheduleUserBed/Cre
 class CreateScheduleController {
   async handle(req: Request, res: Response){
 
-    const { operational_day,unity_id ,creator_user_id ,shift_id ,users_beds } = req.body;
+    const { operational_day,unity_id ,creator_user_id ,shift_id ,users_beds, workload } = req.body;
 
     const scheduleService = new CreateScheduleService();
 
@@ -14,7 +14,8 @@ class CreateScheduleController {
       unity_id,
       user_creator_id: creator_user_id,
       shift_id,
-      users_beds
+      users_beds,
+      workload,
     });
 
     const scheduleUserBedService = new CreateScheduleUserBedService();

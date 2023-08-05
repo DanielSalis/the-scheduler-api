@@ -6,6 +6,7 @@ interface ScheduleRequest {
   user_creator_id: string,
   shift_id: string,
   users_beds: Array<object>,
+  workload: number,
 }
 
 class CreateScheduleService {
@@ -31,7 +32,8 @@ class CreateScheduleService {
         operational_day: scheduleRequest.operational_day,
         unity_id: scheduleRequest.unity_id,
         user_creator_id: scheduleRequest.user_creator_id,
-        shift_id: scheduleRequest.shift_id
+        shift_id: scheduleRequest.shift_id,
+        workload: scheduleRequest.workload
       }
     });
 
