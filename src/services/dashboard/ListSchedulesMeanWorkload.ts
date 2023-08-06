@@ -45,7 +45,7 @@ class ListSchedulesMeanWorkload {
     schedules.forEach((item :any) => {
       const unityId = item.unity.id;
       const unityName = item.unity.name;
-      const workload = item.workload;
+      const workload = item.cancelled ? 0 : item.workload;
 
       // Find existing unity entry in the resultArray
       const existingUnity = resultArray.find((unity:any) => unity.name === unityName);
