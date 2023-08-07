@@ -28,6 +28,8 @@ import { DeleteBedController } from './controllers/bed/DeleteBedController';
 import { ListShiftsController } from './controllers/shift/ListShiftController';
 import { CreateScheduleController } from './controllers/schedule/CreateScheduleController';
 import { ListDashBoardController } from './controllers/dashboard/ListDashBoardController';
+import { ListScheduleController } from './controllers/schedule/ListScheduleController';
+import { UpdateScheduleController } from './controllers/schedule/UpdateScheduleController';
 
 const router = Router();
 
@@ -85,8 +87,9 @@ router.get('/shift/getAll', new ListShiftsController().getAll);
 
 //schedule
 router.post('/schedule/create', new CreateScheduleController().handle);
-//router.get('/schedule/getAll', new ListSchedulerController().getAll);
-//router.get('/schedule/getById/:id', new ListSchedulerController().getById);
+router.get('/schedule/getAll', new ListScheduleController().getAll);
+router.get('/schedule/getById/:id', new ListScheduleController().getById);
+router.put('/schedule/updateById', new UpdateScheduleController().updateById);
 
 //dashboard
 router.get('/dashboard/listSchedulesMeanWorkload', new ListDashBoardController().getScheduleMeanWorkload);
