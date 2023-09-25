@@ -15,7 +15,8 @@ class ListAllUsersByUnityId {
         id: true,
         name: true,
         email: true,
-        code: true
+        code: true,
+        user_role: true
       }
     });
 
