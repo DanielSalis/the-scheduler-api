@@ -30,6 +30,8 @@ import { CreateScheduleController } from './controllers/schedule/CreateScheduleC
 import { ListDashBoardController } from './controllers/dashboard/ListDashBoardController';
 import { ListScheduleController } from './controllers/schedule/ListScheduleController';
 import { UpdateScheduleController } from './controllers/schedule/UpdateScheduleController';
+import { UpdateClassificationController } from './controllers/classification/UpdateClassificationController';
+import { DeleteClassificationController } from './controllers/classification/DeleteClassificationController';
 
 const router = Router();
 
@@ -73,6 +75,8 @@ router.delete('/unity/deleteById/:id', new DeleteUnityController().deleteById);
 router.post('/classification/create', new CreateClassificationController().handle);
 router.get('/classification/getAll', new ListClassificationController().getAll);
 router.get('/classification/getById/:id', new ListClassificationController().getById);
+router.put('/classification/updateById', new UpdateClassificationController().updateById);
+router.delete('/classification/deleteById/:id', new DeleteClassificationController().deleteById);
 
 //bed
 router.post('/bed/create', new CreateBedController().handle);
