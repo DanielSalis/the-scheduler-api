@@ -33,7 +33,8 @@ class CreateScheduleService {
         unity_id: scheduleRequest.unity_id,
         user_creator_id: scheduleRequest.user_creator_id,
         shift_id: scheduleRequest.shift_id,
-        workload: scheduleRequest.workload
+        workload: scheduleRequest.workload,
+        users_quantity: scheduleRequest.users_beds.length
       }
     });
 

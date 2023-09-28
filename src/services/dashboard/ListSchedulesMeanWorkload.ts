@@ -25,6 +25,16 @@ class ListSchedulesMeanWorkload {
         gte: params.start_date
       };
     }
+    else if(params.start_date && !params.end_date) {
+      filter.where.operational_day = {
+        equals: params.start_date
+      };
+    }
+    else if(!params.start_date && params.end_date){
+      filter.where.operational_day = {
+        equals: params.end_date
+      };
+    }
 
     filter.orderBy = [
       {
@@ -36,6 +46,7 @@ class ListSchedulesMeanWorkload {
       workload: true,
       operational_day: true,
       cancelled: true,
+      users_quantity: true,
       unity: {
         select: {
           id: true,
@@ -53,7 +64,8 @@ class ListSchedulesMeanWorkload {
     schedules.forEach((item :any) => {
       const unityId = item.unity.id;
       const unityName = item.unity.name;
-      const workload = item.cancelled ? 0 : item.workload;
+      const workload = item.cancelled ? 0 : parseInt(item.workload);
+      const users_quantity = item.users_quantity ? parseInt(item.users_quantity) : 1;
 
       // Find existing unity entry in the resultArray
       const existingUnity = resultArray.find((unity:any) => unity.name === unityName);
@@ -63,14 +75,16 @@ class ListSchedulesMeanWorkload {
         const existingDataIndex = existingUnity.data.findIndex((entry:any) => entry.day === item.operational_day);
         if (existingDataIndex !== -1) {
           existingUnity.data[existingDataIndex].workload += workload;
+          existingUnity.data[existingDataIndex].users_quantity += users_quantity;
         } else {
-          existingUnity.data.push({ day: item.operational_day, workload: workload });
+          existingUnity.data.push({ day: item.operational_day, workload: workload, users_quantity });
         }
       } else {
         // Unity entry doesn't exist, create a new one with the initial day data
         resultArray.push({
           name: unityName,
-          data: [{ day: item.operational_day, workload: workload }]
+          data: [{ day: item.operational_day, workload: workload, users_quantity }],
+          users_quantity: users_quantity
         });
       }
     });
@@ -78,7 +92,8 @@ class ListSchedulesMeanWorkload {
     // Reformat the data to match the desired structure
     const finalResult = resultArray.map((unity:any) => ({
       name: unity.name,
-      data: unity.data.map((entry:any) => entry.workload)
+      data: unity.data.map((entry:any) => (entry.workload / entry.users_quantity).toFixed(2)),
+      users_quantity: unity.data.map((entry:any) => entry.users_quantity)
     }));
 
     return {

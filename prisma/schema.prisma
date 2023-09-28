@@ -111,6 +111,7 @@ model Schedules {
   operational_day String?
   cancelled       Boolean?  @default(false)
   workload        Float?
+  users_quantity  Int?
 
   unity    Unity  @relation(fields: [unity_id], references: [id])
   unity_id String
