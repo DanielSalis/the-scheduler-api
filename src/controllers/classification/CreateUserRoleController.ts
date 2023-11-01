@@ -7,7 +7,7 @@ class CreateClassificationController {
 
     const service = new CreateClassificationService();
 
-    const userRole = await service.execute({ name,color,estimated_time });
+    const userRole = await service.execute({ name,color,estimated_time: Number(estimated_time) });
 
     return res.json(userRole);
   }
