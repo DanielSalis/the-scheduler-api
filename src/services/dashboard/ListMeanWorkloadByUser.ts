@@ -70,8 +70,6 @@ class ListMeanWorkloadByUsers {
       }
     });
 
-    console.log(schedulesUsers);
-
     const usersMap = new Map<string, any>();
     schedulesUsers.forEach((item) => {
       const { user, schedule } = item;
@@ -113,7 +111,9 @@ class ListMeanWorkloadByUsers {
     });
 
 
-    return result;
+
+    return result.sort((a:any,b:any) => (a.total_period_time < b.total_period_time) ? 1 : ((b.total_period_time < a.total_period_time) ? -1 : 0))
+    ;
   }
 }
 
