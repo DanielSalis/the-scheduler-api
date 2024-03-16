@@ -98,6 +98,7 @@ router.put('/schedule/updateById', new UpdateScheduleController().updateById);
 
 //dashboard
 router.get('/dashboard/listSchedulesMeanWorkload', new ListDashBoardController().getScheduleMeanWorkload);
+router.get('/dashboard/listMeanWorkloadByUsers', new ListDashBoardController().getMeanWorkloadByUsers);
 
 // Teste
 router.get('/teste', (req: Request, res: Response) => {
