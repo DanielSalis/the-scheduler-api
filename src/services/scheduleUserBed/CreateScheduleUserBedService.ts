@@ -19,7 +19,7 @@ interface Bed {
 
 interface User {
   id: string,
-  estimated_time: number,
+  workload: number,
   beds: Array<Bed>
 }
 
@@ -48,12 +48,21 @@ class CreateScheduleUserBedService {
     const usersBeds:Array<object> = [];
     users_beds.forEach(async (user: User) => {
       user.beds.forEach(async (bed: Bed) => {
+        const currentBed = await prismaClient.bed.findFirst({
+          where: {
+            id: bed.id
+          },
+          select: {
+            classification: true
+          },
+        });
+
         const newUserBed = await prismaClient.scheduleUserBed.create({
           data:{
             schedule_id: schedule_id,
             user_id: user.id,
             bed_id: bed.id,
-            estimated_time: user.estimated_time
+            estimated_time: currentBed?.classification.estimated_time
           }
         });
         usersBeds.push(newUserBed);
