@@ -10,7 +10,7 @@ class ListDashBoardController {
 
     const schedules = await service.execute({
       unity_id:  unity_id ? unity_id as [] : [],
-      shift_id: shift_id ? String(shift_id) : undefined,
+      shift_id: shift_id ? shift_id as [] : [],
       start_date: start_date ? String(start_date) : undefined,
       end_date: end_date ? String(end_date) : undefined
     });

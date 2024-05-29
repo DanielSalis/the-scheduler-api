@@ -3,7 +3,7 @@ import { Prisma } from '@prisma/client';
 
 interface ScheduleRquest {
   unity_id?: [],
-  shift_id?: string,
+  shift_id?: [],
   start_date?: string,
   end_date?: string
 }
@@ -22,7 +22,13 @@ class ListSchedulesMeanWorkload {
         in : params.unity_id
       }
     };
-    if(params.shift_id) filter.where.shift_id = params.shift_id;
+    if(params.shift_id && params.shift_id.length > 0) {
+      filter.where = {
+        shift_id : {
+          in : params.shift_id
+        }
+      };
+    }
     if(params.start_date && params.end_date) {
       filter.where.operational_day = {
         lte: params.end_date,
