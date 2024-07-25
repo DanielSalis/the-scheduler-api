@@ -6,3 +6,7 @@ Backend repo for de nurse scheduling app from my University conclusion project
 
 - npm install
 - npx prisma init
+
+## Documentation
+Check more into the assets folder
+![Api overview](./assets/Api%20-%20visão%20macro.png)
