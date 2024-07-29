@@ -19,6 +19,15 @@ Backend repo for de nurse scheduling app from my University conclusion project
 * Database diagram
 ![Api overview](./assets/diagrama-banco-de-dados.png)
 
-* Scheduling sequence diagram
+* Scheduling general sequence diagram
 ![Api overview](./assets/diagrama-sequencia-dimensionamento.png)
+
+* Login sequence diagram
+![Api overview](./assets/diagrama-sequencia-login.png)
+
+* Login sequence diagram
+![Api overview](./assets/diagrama-sequencia-login.png)
+
+* user/create api aroute sequence diagram
+![Api overview](./assets/diagrama-sequencia.png)
 </details>
