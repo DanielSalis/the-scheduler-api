@@ -9,7 +9,7 @@ Backend repo for de nurse scheduling app from my University conclusion project
 
 ## Documentation
 <details>
-<summary>Images</summary>
+<summary>Diagrams</summary>
 
 ### More info into the assets folder
 
