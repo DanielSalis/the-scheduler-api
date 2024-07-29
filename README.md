@@ -20,5 +20,5 @@ Backend repo for de nurse scheduling app from my University conclusion project
 ![Api overview](./assets/diagrama-banco-de-dados.png)
 
 * Scheduling sequence diagram
-![Api overview](./assets/diagrama-banco-de-dados.png)
+![Api overview](./assets/diagrama-sequencia-dimensionamento.png)
 </details>
