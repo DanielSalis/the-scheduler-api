@@ -11,7 +11,7 @@ Backend repo for de nurse scheduling app from my University conclusion project
 <details>
 <summary>Images</summary>
 
-### Check more into the assets folder
+### More info into the assets folder
 
 * Api Overview
 ![Api overview](./assets/Api%20-%20visão%20macro.png)
